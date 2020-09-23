@@ -10,7 +10,7 @@ app.use(cors());
 const router = express.Router();
 router.get('/data', (req, resp, next) => {
     
-    resp.status(200).json(
+    resp.status(200).json([
         {
             "id": 1,
             "name": "User1",
@@ -30,11 +30,11 @@ router.get('/data', (req, resp, next) => {
             "id": 4,
             "name": "User4",
             "src": "/public/images/avatars/4.jpg"
-        }
+        }]
     );
 });
 
-
+app.use(router);
 app.use(function(err, req, res, next) {
     console.log(err);
     // render the error page
